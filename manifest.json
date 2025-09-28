@@ -1,0 +1,39 @@
+{
+  "Actions": [
+    {
+      "Icon": "Images/icon",
+      "Name": "CMDS Info",
+      "States": [
+        {
+          "Image": "Images/pluginAction",
+          "TitleAlignment": "middle",
+          "FontSize": "12"
+        }
+      ],
+      "SupportedInMultiActions": false,
+      "Tooltip": "Display CMDS Information.",
+      "UUID": "com.kubbie.bms.cmdsaction",
+      "PropertyInspectorPath": "PropertyInspector/CMDSAction.html"
+    }
+  ],
+  "Author": "Kubbie",
+  "Name": "Falcon 4 BMS",
+  "Description": "Display Falcon 4 BMS SharedMem information.",
+  "Icon": "Images/pluginIcon",
+  "URL": "https://github.com/kubbie29/F4BMS-StreamDeck",
+  "Version": "0.1.0.0",
+  "CodePath": "com.kubbie.bms",
+  "UUID": "com.kubbie.bms",
+  "Category": "Falcon 4 BMS",
+  "CategoryIcon": "Images/categoryIcon",
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "SDKVersion": 2,
+  "Software": {
+    "MinimumVersion": "6.4"
+  }
+}
