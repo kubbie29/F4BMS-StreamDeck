@@ -114,6 +114,7 @@
     </Content>
     <Content Include="KeyIcons\chaffIcon.png" />
     <Content Include="KeyIcons\flareIcon.png" />
+    <Content Include="KeyIcons\modeIcon.png" />
     <Content Include="PropertyInspector\CMDSAction\CMDSAction.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

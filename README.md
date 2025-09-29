@@ -20,15 +20,11 @@ All Display formatting is done with the default StreamDeck Title formatting opti
 ![Title Format Options](./titleformatoption.png)
 
 ## Useful Things
-Icons that can be used for the buttons located under the src/Images folder
+Icons that can be used for the buttons located under the KeyIcons folder
 
-Flare Icon
-
-![Flare Icon](./Images/flareIcon.png)
-
-Chaff Icon
-
-![Chaff Icon](./Images/chaffIcon.png)
+![Flare Icon](./KeyIcons/flareIcon.png)
+![Chaff Icon](./KeyIcons/chaffIcon.png)
+![Mode Icon](./KeyIcons/modeIcon.png)
 
 ## TODO
 * Only show the Low Warning text boxes when those options are selected
