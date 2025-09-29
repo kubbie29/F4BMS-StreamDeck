@@ -16,16 +16,11 @@ namespace F4BMS_StreamDeck
     {
         private Reader _sharedMemReader = new Reader();
         private FlightData _lastFlightData;
-                
-        private string ChaffLowString {  get; set; }
-        private string FlareLowString { get; set; }
 
         public FlightDataUtil() 
         {
             Logger.Instance.LogMessage(TracingLevel.INFO, "Start SharedMem Process");
             _lastFlightData = _sharedMemReader.GetCurrentData();
-            ChaffLowString = "CHAFF" + Environment.NewLine + "LO";
-            FlareLowString = "FLARE" + Environment.NewLine + "LO";
 
         }
 
@@ -34,63 +29,41 @@ namespace F4BMS_StreamDeck
             return _lastFlightData = _sharedMemReader.GetCurrentData();
         }
 
-        public string GetCMDSFlightData(string selectedData)
+        public int GetCMDSFlightData(string selectedData)
         {
             /**
              * TODO: 
-             * Multiline the Chaff/Flare Low
              * On destruction/shutdown, clear out the buttons. (Do in the action class)
              * 
              * When Low is selected, show an option to let custom text be entered
              * On Mode selected, allow keypress button bind.
             **/
-            string data = "";
+            int data = -1;
             var lightBits2 = (LightBits2)_lastFlightData.lightBits2;
             switch (selectedData)
             {
                 case "cc":
-                    data = _lastFlightData.ChaffCount >= 0 ? _lastFlightData.ChaffCount.FormatDecimal(decimalPlaces: 0) : "0";
+                    data = Convert.ToInt32(_lastFlightData.ChaffCount);
                     break;
                 case "fc":
-                    data = _lastFlightData.FlareCount >= 0 ? _lastFlightData.FlareCount.FormatDecimal(decimalPlaces: 0) : "0";
+                    data = Convert.ToInt32(_lastFlightData.FlareCount);
                     break;
                 case "cl":
                     if ((lightBits2 & LightBits2.ChaffLo) == LightBits2.ChaffLo)
                     {
-                        data = ChaffLowString;
+                        data = 1;
                     }
-                    else data = "";
+                    else data = 0;
                     break;
                 case "fl":
                     if ((lightBits2 & LightBits2.FlareLo) == LightBits2.FlareLo)
                     {
-                        data = FlareLowString;
+                        data = 1;
                     }
-                    else data = "";
+                    else data = 0;
                     break;
                 case "mode":
-                    switch(_lastFlightData.cmdsMode)
-                    {
-                        case 0:
-                            data = "OFF";
-                            break;
-                        case 1:
-                            data = "STBY";
-                            break;
-                        case 2:
-                            data = "MAN";
-                            break;
-                        case 3:
-                            data = "SEMI";
-                            break;
-                        case 4:
-                            data = "AUTO";
-                            break;
-                        case 5:
-                            data = "BYP";
-                            break;
-                    }
-                    
+                    data = _lastFlightData.cmdsMode;                  
                     break;
 
             }

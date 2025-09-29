@@ -13,13 +13,28 @@
 <body>
     <div class="sdpi-item">
         <div class="sdpi-item-label">CMDS Data</div>
-        <select class="sdpi-item-value select sdProperty" id="cmdsDataItem" oninput="setSettings()" onchange="setSettings()">
-            <option value="cc" selected>Chaff Count</option>
+        <select class="sdpi-item-value select sdProperty" id="cmdsDataType" oninput="setSettings()" onchange="setSettings()">
+            <option value="cc">Chaff Count</option>
             <option value="fc">Flare Count</option>
             <option value="cl">Chaff Low</option>
             <option value="fl">Flare Low</option>
             <option value="mode">CMDS Mode</option>
         </select>
     </div>
+    <div type="textarea" class="sdpi-item" id="chaffLowTextArea">
+        <div class="sdpi-item-label">Chaff Low Text</div>
+        <span class="sdpi-item-value textarea">
+            <textarea type="textarea" oninput="setSettings()" class="sdProperty" id="chaffLowText">CHAFF
+            LO</textarea>
+        </span>
+    </div>
+    <div type="textarea" class="sdpi-item" id="flareLowTextArea">
+        <div class="sdpi-item-label">Flare Low Text</div>
+        <span class="sdpi-item-value textarea">
+            <textarea type="textarea" oninput="setSettings()" class="sdProperty" id="flareLowText">FLARE
+            LO </textarea>
+        </span>
+    </div>
+
 </body>
 </html>

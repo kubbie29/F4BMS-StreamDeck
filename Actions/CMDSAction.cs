@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,21 +22,22 @@ namespace F4BMS_StreamDeck.Actions
             {
                 Logger.Instance.LogMessage(TracingLevel.INFO, "CreateDefaultSettings started");
                 PluginSettings instance = new PluginSettings();
-                instance.cmdsDataItem = String.Empty;
-                //instance.chaffLowString = "CHAFF" + Environment.NewLine + "LO";
-                //instance.flareLowString = "FLARE" + Environment.NewLine + "LO";
+                instance.cmdsDataType = String.Empty;
+                instance.chaffLowText = "CHAFF" + Environment.NewLine + "LO";
+                instance.flareLowText = "FLARE" + Environment.NewLine + "LO";
 
                 return instance;
             }
 
-            [JsonProperty(PropertyName = "cmdsDataItem")]
-            public string cmdsDataItem { get; set; }
+            [JsonProperty(PropertyName = "cmdsDataType")]
+            public string cmdsDataType { get; set; }
 
-            //[JsonProperty(PropertyName = "chaffLowString")]
-            //public string chaffLowString { get; set; }
+            [JsonProperty(PropertyName = "chaffLowText")]
+            public string chaffLowText { get; set; }
 
-            //[JsonProperty(PropertyName = "flareLowString")]
-            //public string flareLowString { get; set; }
+            [JsonProperty(PropertyName = "flareLowText")]
+            public string flareLowText { get; set; }
+
 
         }
 
@@ -57,7 +59,11 @@ namespace F4BMS_StreamDeck.Actions
         public override void ReceivedSettings(ReceivedSettingsPayload payload)
         {
             Tools.AutoPopulateSettings(settings, payload.Settings);
+            SaveSettings();
         }
+
+
+        
         public override void Dispose()
         {
             Logger.Instance.LogMessage(TracingLevel.INFO, "Destructor called");
@@ -73,8 +79,8 @@ namespace F4BMS_StreamDeck.Actions
         {
             if (_flightDataUtil.ReadSharedMem() != null)
             {
-                string data = _flightDataUtil.GetCMDSFlightData(settings.cmdsDataItem);
-                await Connection.SetTitleAsync(data);
+                string formattedData = FormatFlightData(_flightDataUtil.GetCMDSFlightData(settings.cmdsDataType));
+                await Connection.SetTitleAsync(formattedData);
             }
             else
             {
@@ -82,5 +88,67 @@ namespace F4BMS_StreamDeck.Actions
             }
         }
 
+
+        #region Private Methods
+
+        private Task SaveSettings()
+        {
+            return Connection.SetSettingsAsync(JObject.FromObject(settings));
+        }
+
+        private string FormatFlightData(int data)
+        {
+            string formattedData = "";
+
+            switch(settings.cmdsDataType)
+            {
+                case "cc":
+                case "fc":
+                    formattedData = data >= 0 ? data.ToString() : "0";
+                    break;
+                case "cl":
+                    if (data == 1)
+                    {
+                        formattedData = settings.chaffLowText;
+                    }
+                    else formattedData = "";
+                    break;
+                case "fl":
+                    if (data == 1)
+                    {
+                        formattedData = settings.flareLowText;
+                    }
+                    else formattedData = "";
+                    break;
+                case "mode":
+                    switch (data)
+                    {
+                        case 0:
+                            formattedData = "OFF";
+                            break;
+                        case 1:
+                            formattedData = "STBY";
+                            break;
+                        case 2:
+                            formattedData = "MAN";
+                            break;
+                        case 3:
+                            formattedData = "SEMI";
+                            break;
+                        case 4:
+                            formattedData = "AUTO";
+                            break;
+                        case 5:
+                            formattedData = "BYP";
+                            break;
+                    }
+                    break;
+                default: formattedData = "_";
+                    break;
+            }
+            return formattedData;
+        }
+
+        #endregion
     }
 }
