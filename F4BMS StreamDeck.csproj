@@ -116,6 +116,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="PropertyInspector\CMDSAction.js" />
+    <Content Include="titleformatoption.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\F4SharedMem\F4SharedMem.csproj">

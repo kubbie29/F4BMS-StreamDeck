@@ -12,6 +12,13 @@ A Streamdeck Plugin that will display information from Falcon 4 BMS's Shared Mem
 		* Text boxes to customize Warning text. <br>Currently the settings show on all buttons, but it will only affect the text of the current button if the Warning option is selected.
 	* Display Current CMDS Mode (OFF/STBY/MAN/SEMI/AUTO/BYP)
 
+All Display formatting is done with the default StreamDeck Title formatting options. 
+<br>Any text placed in the Title text box will be overwritten by the plugin information (subject to change).
+
+![Title Format Options](./titleformatoption.png)
+
+
+
 ## TODO
 * Only show the Low Warning text boxes when those options are selected
 
