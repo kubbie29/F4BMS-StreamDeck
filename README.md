@@ -13,7 +13,9 @@ A Streamdeck Plugin that will display information from Falcon 4 BMS's Shared Mem
 	* Display Current CMDS Mode (OFF/STBY/MAN/SEMI/AUTO/BYP)
 
 All Display formatting is done with the default StreamDeck Title formatting options. 
-<br>Any text placed in the Title text box will be overwritten by the plugin information (subject to change).
+
+> [!WARNING]
+> Any text placed in the Title text box will be override the plugin information, so it must be blank to work.
 
 ![Title Format Options](./titleformatoption.png)
 
