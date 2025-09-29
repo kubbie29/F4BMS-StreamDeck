@@ -19,7 +19,16 @@ All Display formatting is done with the default StreamDeck Title formatting opti
 
 ![Title Format Options](./titleformatoption.png)
 
+## Useful Things
+Icons that can be used for the buttons located under the src/Images folder
 
+Flare Icon
+
+![Flare Icon](./Images/flareIcon.png)
+
+Chaff Icon
+
+![Chaff Icon](./Images/chaffIcon.png)
 
 ## TODO
 * Only show the Low Warning text boxes when those options are selected
