@@ -13,7 +13,7 @@
       "SupportedInMultiActions": false,
       "Tooltip": "Display CMDS Information.",
       "UUID": "com.kubbie.bms.cmdsaction",
-      "PropertyInspectorPath": "PropertyInspector/CMDSAction.html"
+      "PropertyInspectorPath": "PropertyInspector/CMDSAction/CMDSAction.html"
     }
   ],
   "Author": "Kubbie",

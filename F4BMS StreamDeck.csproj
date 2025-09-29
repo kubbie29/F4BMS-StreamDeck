@@ -112,10 +112,12 @@
     <Content Include="Images\pluginIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="PropertyInspector\CMDSAction.html">
+    <Content Include="KeyIcons\chaffIcon.png" />
+    <Content Include="KeyIcons\flareIcon.png" />
+    <Content Include="PropertyInspector\CMDSAction\CMDSAction.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="PropertyInspector\CMDSAction.js" />
+    <Content Include="PropertyInspector\CMDSAction\CMDSAction.js" />
     <Content Include="titleformatoption.png" />
   </ItemGroup>
   <ItemGroup>
