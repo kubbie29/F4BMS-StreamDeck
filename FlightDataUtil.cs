@@ -35,7 +35,6 @@ namespace F4BMS_StreamDeck
              * TODO: 
              * On destruction/shutdown, clear out the buttons. (Do in the action class)
              * 
-             * When Low is selected, show an option to let custom text be entered
              * On Mode selected, allow keypress button bind.
             **/
             int data = -1;
@@ -47,6 +46,27 @@ namespace F4BMS_StreamDeck
                     break;
                 case "fc":
                     data = Convert.ToInt32(_lastFlightData.FlareCount);
+                    break;
+                case "go":
+                    if ((lightBits2 & LightBits2.Go) == LightBits2.Go)
+                    {
+                        data = 1;
+                    }
+                    else data = 0;
+                    break;
+                case "nogo":
+                    if ((lightBits2 & LightBits2.NoGo) == LightBits2.NoGo)
+                    {
+                        data = 1;
+                    }
+                    else data = 0;
+                    break;
+                case "rdy":
+                    if ((lightBits2 & LightBits2.Rdy) == LightBits2.Rdy)
+                    {
+                        data = 1;
+                    }
+                    else data = 0;
                     break;
                 case "cl":
                     if ((lightBits2 & LightBits2.ChaffLo) == LightBits2.ChaffLo)
@@ -63,10 +83,10 @@ namespace F4BMS_StreamDeck
                     else data = 0;
                     break;
                 case "mode":
-                    data = _lastFlightData.cmdsMode;                  
+                    data = _lastFlightData.cmdsMode;
                     break;
 
-            }
+                }
 
             return data;
         }

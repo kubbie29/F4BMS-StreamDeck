@@ -16,9 +16,12 @@
         <select class="sdpi-item-value select sdProperty" id="cmdsDataType" oninput="setSettings()" onchange="setSettings()">
             <option value="cc">Chaff Count</option>
             <option value="fc">Flare Count</option>
-            <option value="cl">Chaff Low</option>
-            <option value="fl">Flare Low</option>
+            <option value="cl">Chaff Low Indicator</option>
+            <option value="fl">Flare Low Indicator</option>
             <option value="mode">CMDS Mode</option>
+            <option value="rdy">DISPENSE RDY Indicator</option>
+            <option value="go">GO Indicator</option>
+            <option value="nogo">NOGO Indicator</option>
         </select>
     </div>
     <div type="textarea" class="sdpi-item" id="chaffLowTextArea">
@@ -35,6 +38,24 @@
             LO </textarea>
         </span>
     </div>
-
+    <div type="textarea" class="sdpi-item" id="goTextArea">
+        <div class="sdpi-item-label">GO Indicator Text</div>
+        <span class="sdpi-item-value textarea">
+            <textarea type="textarea" oninput="setSettings()" class="sdProperty" id="goText">GO</textarea>
+        </span>
+    </div>
+    <div type="textarea" class="sdpi-item" id="nogoTextArea">
+        <div class="sdpi-item-label">NO GO Indicator Text</div>
+        <span class="sdpi-item-value textarea">
+            <textarea type="textarea" oninput="setSettings()" class="sdProperty" id="nogoText">NO GO</textarea>
+        </span>
+    </div>
+    <div type="textarea" class="sdpi-item" id="rdyTextArea">
+        <div class="sdpi-item-label">DISPENSE RDY Indicator Text</div>
+        <span class="sdpi-item-value textarea">
+            <textarea type="textarea" oninput="setSettings()" class="sdProperty" id="rdyText">DISPENSE
+            RDY</textarea>
+        </span>
+    </div>
 </body>
 </html>

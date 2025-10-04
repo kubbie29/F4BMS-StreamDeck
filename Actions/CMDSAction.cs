@@ -25,6 +25,9 @@ namespace F4BMS_StreamDeck.Actions
                 instance.cmdsDataType = String.Empty;
                 instance.chaffLowText = "CHAFF" + Environment.NewLine + "LO";
                 instance.flareLowText = "FLARE" + Environment.NewLine + "LO";
+                instance.goText = "GO";
+                instance.nogoText = "NO GO";
+                instance.rdyText = "DISPENSE" + Environment.NewLine + "RDY";
 
                 return instance;
             }
@@ -37,6 +40,14 @@ namespace F4BMS_StreamDeck.Actions
 
             [JsonProperty(PropertyName = "flareLowText")]
             public string flareLowText { get; set; }
+
+            [JsonProperty(PropertyName = "goText")]
+            public string goText { get; set; }
+            
+            [JsonProperty(PropertyName = "nogoText")]
+            public string nogoText {  get; set; }
+            [JsonProperty(PropertyName = "rdyText")]
+            public string rdyText { get; set; }
 
 
         }
@@ -117,6 +128,27 @@ namespace F4BMS_StreamDeck.Actions
                     if (data == 1)
                     {
                         formattedData = settings.flareLowText;
+                    }
+                    else formattedData = "";
+                    break;
+                case "go":
+                    if (data == 1)
+                    {
+                        formattedData = settings.goText;
+                    }
+                    else formattedData = "";
+                    break;
+                case "nogo":
+                    if (data == 1)
+                    {
+                        formattedData = settings.nogoText;
+                    }
+                    else formattedData = "";
+                    break;
+                case "rdy":
+                    if (data == 1)
+                    {
+                        formattedData = settings.rdyText;
                     }
                     else formattedData = "";
                     break;
