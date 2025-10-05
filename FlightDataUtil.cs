@@ -31,12 +31,6 @@ namespace F4BMS_StreamDeck
 
         public int GetCMDSFlightData(string selectedData)
         {
-            /**
-             * TODO: 
-             * On destruction/shutdown, clear out the buttons. (Do in the action class)
-             * 
-             * On Mode selected, allow keypress button bind.
-            **/
             int data = -1;
             var lightBits2 = (LightBits2)_lastFlightData.lightBits2;
             switch (selectedData)
@@ -87,6 +81,30 @@ namespace F4BMS_StreamDeck
                     break;
 
                 }
+
+            return data;
+        }
+
+        public float GetEngineFlightData(string selectedData)
+        {
+            float data = -1;
+
+            switch (selectedData)
+            {
+                case "rpm":
+                    data = _lastFlightData.rpm;
+                    break;
+                case "ftit":
+                    data = _lastFlightData.ftit;
+                    break;
+                case "oil":
+                    data = _lastFlightData.oilPressure;
+                    break;
+                case "noz":
+                    data =_lastFlightData.nozzlePos;
+                    break;
+            }
+
 
             return data;
         }

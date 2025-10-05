@@ -4,10 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F4BMS StreamDeck", "F4BMS StreamDeck.csproj", "{4635D874-69C0-4010-BE46-77EF92EB1553}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ABA9CC75-B778-4E46-A6F6-AFEC27F2EB59} = {ABA9CC75-B778-4E46-A6F6-AFEC27F2EB59}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F4SharedMem", "..\F4SharedMem\F4SharedMem.csproj", "{517D1B4D-E8C7-4331-BBE7-300FD6B78441}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Streamdeck-vJoy", "..\Streamdeck-vJoy\Streamdeck-vJoy.csproj", "{A023C19E-78F6-41C0-AB65-9D028EE72A76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F4SharedMemViewer", "..\..\..\lightningstools\src\F4SharedMemViewer\F4SharedMemViewer.csproj", "{B88F8409-F306-4AF4-A619-F83760111585}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\..\..\lightningstools\src\Common\Common.csproj", "{ABA9CC75-B778-4E46-A6F6-AFEC27F2EB59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,12 +28,20 @@ Global
 		{4635D874-69C0-4010-BE46-77EF92EB1553}.Release|Any CPU.Build.0 = Release|Any CPU
 		{517D1B4D-E8C7-4331-BBE7-300FD6B78441}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{517D1B4D-E8C7-4331-BBE7-300FD6B78441}.Debug|Any CPU.Build.0 = Debug|x86
-		{517D1B4D-E8C7-4331-BBE7-300FD6B78441}.Release|Any CPU.ActiveCfg = Release|x86
-		{517D1B4D-E8C7-4331-BBE7-300FD6B78441}.Release|Any CPU.Build.0 = Release|x86
+		{517D1B4D-E8C7-4331-BBE7-300FD6B78441}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{517D1B4D-E8C7-4331-BBE7-300FD6B78441}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A023C19E-78F6-41C0-AB65-9D028EE72A76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A023C19E-78F6-41C0-AB65-9D028EE72A76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A023C19E-78F6-41C0-AB65-9D028EE72A76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A023C19E-78F6-41C0-AB65-9D028EE72A76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B88F8409-F306-4AF4-A619-F83760111585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B88F8409-F306-4AF4-A619-F83760111585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B88F8409-F306-4AF4-A619-F83760111585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B88F8409-F306-4AF4-A619-F83760111585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABA9CC75-B778-4E46-A6F6-AFEC27F2EB59}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{ABA9CC75-B778-4E46-A6F6-AFEC27F2EB59}.Debug|Any CPU.Build.0 = Debug|x86
+		{ABA9CC75-B778-4E46-A6F6-AFEC27F2EB59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABA9CC75-B778-4E46-A6F6-AFEC27F2EB59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

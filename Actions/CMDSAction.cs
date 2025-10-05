@@ -16,6 +16,13 @@ namespace F4BMS_StreamDeck.Actions
     {
         static private FlightDataUtil _flightDataUtil = new FlightDataUtil();
         private PluginSettings settings;
+
+        private string chaffLowText = "CHAFF" + Environment.NewLine + "LO";
+        private string flareLowText = "FLARE" + Environment.NewLine + "LO";
+        private string goText = "GO";
+        private string nogoText = "NO GO";
+        private string rdyText = "DISPENSE" + Environment.NewLine + "RDY";
+
         private class PluginSettings
         {
             public static PluginSettings CreateDefaultSettings()
@@ -23,31 +30,16 @@ namespace F4BMS_StreamDeck.Actions
                 Logger.Instance.LogMessage(TracingLevel.INFO, "CreateDefaultSettings started");
                 PluginSettings instance = new PluginSettings();
                 instance.cmdsDataType = String.Empty;
-                instance.chaffLowText = "CHAFF" + Environment.NewLine + "LO";
-                instance.flareLowText = "FLARE" + Environment.NewLine + "LO";
-                instance.goText = "GO";
-                instance.nogoText = "NO GO";
-                instance.rdyText = "DISPENSE" + Environment.NewLine + "RDY";
-
+                
                 return instance;
             }
 
             [JsonProperty(PropertyName = "cmdsDataType")]
             public string cmdsDataType { get; set; }
 
-            [JsonProperty(PropertyName = "chaffLowText")]
-            public string chaffLowText { get; set; }
+            [JsonProperty(PropertyName = "indicatorText")]
+            public string indicatorText { get; set; }
 
-            [JsonProperty(PropertyName = "flareLowText")]
-            public string flareLowText { get; set; }
-
-            [JsonProperty(PropertyName = "goText")]
-            public string goText { get; set; }
-            
-            [JsonProperty(PropertyName = "nogoText")]
-            public string nogoText {  get; set; }
-            [JsonProperty(PropertyName = "rdyText")]
-            public string rdyText { get; set; }
 
 
         }
@@ -104,6 +96,24 @@ namespace F4BMS_StreamDeck.Actions
 
         private Task SaveSettings()
         {
+            switch (settings.cmdsDataType)
+            {
+                case "cl":
+                    chaffLowText = settings.indicatorText;
+                    break;
+                case "fl":
+                    flareLowText = settings.indicatorText; 
+                    break;
+                case "go":
+                    goText = settings.indicatorText;
+                    break;
+                case "nogo":
+                    nogoText = settings.indicatorText;
+                    break;
+                case "rdy":
+                    rdyText = settings.indicatorText;
+                    break;
+            }
             return Connection.SetSettingsAsync(JObject.FromObject(settings));
         }
 
@@ -120,35 +130,35 @@ namespace F4BMS_StreamDeck.Actions
                 case "cl":
                     if (data == 1)
                     {
-                        formattedData = settings.chaffLowText;
+                        formattedData = chaffLowText;
                     }
                     else formattedData = "";
                     break;
                 case "fl":
                     if (data == 1)
                     {
-                        formattedData = settings.flareLowText;
+                        formattedData = flareLowText;
                     }
                     else formattedData = "";
                     break;
                 case "go":
                     if (data == 1)
                     {
-                        formattedData = settings.goText;
+                        formattedData = goText;
                     }
                     else formattedData = "";
                     break;
                 case "nogo":
                     if (data == 1)
                     {
-                        formattedData = settings.nogoText;
+                        formattedData = nogoText;
                     }
                     else formattedData = "";
                     break;
                 case "rdy":
                     if (data == 1)
                     {
-                        formattedData = settings.rdyText;
+                        formattedData = rdyText;
                     }
                     else formattedData = "";
                     break;

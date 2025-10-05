@@ -41,10 +41,6 @@
     <Reference Include="CommandLine, Version=2.9.1.0, Culture=neutral, PublicKeyToken=5a870481e358d379, processorArchitecture=MSIL">
       <HintPath>packages\CommandLineParser.2.9.1\lib\net461\CommandLine.dll</HintPath>
     </Reference>
-    <Reference Include="Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=abd82ffe41e2ab64, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\Common.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -74,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\CMDSAction.cs" />
+    <Compile Include="Actions\EngineAction.cs" />
     <Compile Include="FlightDataUtil.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,7 +84,6 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Common.dll" />
     <Content Include="Images\categoryIcon%402x.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -114,14 +110,26 @@
     </Content>
     <Content Include="KeyIcons\chaffIcon.png" />
     <Content Include="KeyIcons\flareIcon.png" />
+    <Content Include="KeyIcons\ftit.png" />
     <Content Include="KeyIcons\modeIcon.png" />
+    <Content Include="KeyIcons\nozpos.png" />
+    <Content Include="KeyIcons\oil.png" />
+    <Content Include="KeyIcons\rpm.png" />
     <Content Include="PropertyInspector\CMDSAction\CMDSAction.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="PropertyInspector\CMDSAction\CMDSAction.js" />
+    <Content Include="PropertyInspector\EngineAction\EngineAction.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PropertyInspector\EngineAction\EngineAction.js" />
     <Content Include="titleformatoption.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\lightningstools\src\Common\Common.csproj">
+      <Project>{aba9cc75-b778-4e46-a6f6-afec27f2eb59}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\F4SharedMem\F4SharedMem.csproj">
       <Project>{517d1b4d-e8c7-4331-bbe7-300fd6b78441}</Project>
       <Name>F4SharedMem</Name>
